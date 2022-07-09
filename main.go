@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/lil-shimon/national-tax/question"
 	"github.com/line/line-bot-sdk-go/linebot"
 	"log"
 	"os"
@@ -11,6 +12,8 @@ func main() {
 	//if err != nil {
 	//	log.Fatal(err)
 	//}
+
+	question.GetQuestion()
 
 	bot, err := linebot.New(
 		os.Getenv("CHANNEL_SECRET"),
@@ -24,4 +27,5 @@ func main() {
 	if _, err := bot.BroadcastMessage(message).Do(); err != nil {
 		log.Fatal(err)
 	}
+
 }
