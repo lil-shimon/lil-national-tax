@@ -1,29 +1,28 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/joho/godotenv"
+	"github.com/line/line-bot-sdk-go/linebot"
+	"log"
+	"os"
 )
 
-type Request struct {
-	ID   float64 `json:"id"`
-	Name string  `json:"name"`
-	Like string  `json:"like"`
-}
-
-type Response struct {
-	YouName string `json:"name"`
-	YouLike string `json:"like"`
-}
-
-func Handler(request Request) (Response, error) {
-	return Response{
-		YouName: fmt.Sprintf("あなたはID %f 番 %s です。", request.ID, request.Name),
-		YouLike: fmt.Sprintf("あなたの好きな物は %s です", request.Like),
-	}, nil
-}
-
 func main() {
-	lambda.Start(Handler)
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	bot, err := linebot.New(
+		os.Getenv("CHANNEL_SECRET"),
+		os.Getenv("CHANNEL_TOKEN"),
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	message := linebot.NewTextMessage("Hello, world!")
+	if _, err := bot.BroadcastMessage(message).Do(); err != nil {
+		log.Fatal(err)
+	}
 }

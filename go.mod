@@ -2,4 +2,7 @@ module github.com/lil-shimon/national-tax
 
 go 1.16
 
-require github.com/aws/aws-lambda-go v1.32.1 // indirect
+require (
+	github.com/joho/godotenv v1.4.0 // indirect
+	github.com/line/line-bot-sdk-go v7.8.0+incompatible
+)
