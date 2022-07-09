@@ -13,7 +13,7 @@ func main() {
 	//	log.Fatal(err)
 	//}
 
-	question.GetQuestion()
+	qs := question.GetQuestion()
 
 	bot, err := linebot.New(
 		os.Getenv("CHANNEL_SECRET"),
@@ -23,7 +23,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	message := linebot.NewTextMessage("Hello, world!")
+	message := linebot.NewTextMessage(qs.Question)
 	if _, err := bot.BroadcastMessage(message).Do(); err != nil {
 		log.Fatal(err)
 	}
