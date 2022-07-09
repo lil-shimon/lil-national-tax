@@ -18,5 +18,5 @@ heroku run ./bin/national-tax
 
 ## manage batch
 ```sh
-```
 heroku addons:open scheduler
+```

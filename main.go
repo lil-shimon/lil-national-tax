@@ -5,6 +5,7 @@ import (
 	"github.com/line/line-bot-sdk-go/linebot"
 	"log"
 	"os"
+	"time"
 )
 
 func main() {
@@ -28,4 +29,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	time.Sleep(10000)
+
+	message = linebot.NewTextMessage(qs.Answer)
+	if _, err := bot.BroadcastMessage(message).Do(); err != nil {
+		log.Fatal(err)
+	}
 }
