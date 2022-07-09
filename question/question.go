@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/csv"
 	"log"
+	"math/rand"
 	"os"
 )
 
@@ -13,9 +14,21 @@ type Question struct {
 	Answer   string
 }
 
-func GetQuestion() {
+func GetQuestion() Question {
 	data := readCsv()
 
+	qs := csvToStruct(data)
+
+	return getRandomQuestion(qs)
+}
+
+func getRandomQuestion(qs []Question) Question {
+	total := len(qs) - 1
+	id := rand.Intn(total-0) + total
+	return qs[id]
+}
+
+func csvToStruct(data [][]string) []Question {
 	var qs []Question
 
 	for _, v := range data {
@@ -25,8 +38,7 @@ func GetQuestion() {
 			Answer:   v[2],
 		})
 	}
-
-	log.Println(qs)
+	return qs
 }
 
 func readCsv() [][]string {
