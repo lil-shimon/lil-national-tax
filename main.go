@@ -23,7 +23,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	message := linebot.NewTextMessage(qs.Question)
+	print(qs.Question)
+
+	message := linebot.NewTextMessage("国税試験問題\n" + qs.Question)
 	if _, err := bot.BroadcastMessage(message).Do(); err != nil {
 		log.Fatal(err)
 	}
