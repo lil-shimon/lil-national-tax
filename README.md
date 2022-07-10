@@ -20,3 +20,8 @@ heroku run ./bin/national-tax
 ```sh
 heroku addons:open scheduler
 ```
+
+## QR code
+you can join the group by scanning the QR code.
+
+![line-qr](./line-qr.png)
