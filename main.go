@@ -26,15 +26,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	txt := linebot.NewTextMessage(msg)
+	txt := linebot.NewTextMessage(msg + "\n 答え:" + qs.Answer)
 	if _, err := bot.BroadcastMessage(txt).Do(); err != nil {
 		log.Fatal(err)
 	}
-
-	//txt = linebot.NewTextMessage(qs.Answer)
-	//if _, err := bot.BroadcastMessage(txt).Do(); err != nil {
-	//	log.Fatal(err)
-	//}
 
 	http.HandleFunc("/callback", func(w http.ResponseWriter, req *http.Request) {
 		events, err := bot.ParseRequest(req)
