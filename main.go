@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
 	"github.com/lil-shimon/national-tax/message"
 	"github.com/lil-shimon/national-tax/question"
 	"github.com/line/line-bot-sdk-go/linebot"
@@ -11,10 +10,10 @@ import (
 )
 
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal(err)
-	}
+	//err := godotenv.Load(".env")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
 
 	qs := question.GetQuestion()
 	msg := message.FmtMsg(qs)
