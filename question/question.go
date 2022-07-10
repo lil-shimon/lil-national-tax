@@ -6,6 +6,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"time"
 )
 
 type Question struct {
@@ -23,9 +24,11 @@ func GetQuestion() Question {
 }
 
 func getRandomQuestion(qs []Question) Question {
-	total := len(qs) - 1
-	id := rand.Intn(total-0) + total
-	return qs[id]
+	total := len(qs)
+	rand.Seed(time.Now().UnixNano())
+	id := rand.Intn(total - 0)
+	data := qs[id]
+	return data
 }
 
 func csvToStruct(data [][]string) []Question {

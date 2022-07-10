@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0661191-a748-41e4-bc25-2c1a510e5dc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/line-qr.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/question/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/question.go" beforeDir="false" afterPath="$PROJECT_DIR$/question/question.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657378132422</updated>
-      <workItem from="1657378133652" duration="12701000" />
+      <workItem from="1657378133652" duration="13680000" />
     </task>
     <servers />
   </component>
@@ -120,8 +121,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/question/question.go</url>
-          <line>55</line>
-          <option name="timeStamp" value="4" />
+          <line>30</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/question/question.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

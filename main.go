@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/lil-shimon/national-tax/message"
+	"github.com/joho/godotenv"
 	"github.com/lil-shimon/national-tax/question"
 	"github.com/line/line-bot-sdk-go/linebot"
 	"log"
@@ -10,13 +10,13 @@ import (
 )
 
 func main() {
-	//err := godotenv.Load(".env")
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	qs := question.GetQuestion()
-	msg := message.FmtMsg(qs)
+	//msg := message.FmtMsg(qs)
 
 	bot, err := linebot.New(
 		os.Getenv("CHANNEL_SECRET"),
@@ -25,11 +25,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	txt := linebot.NewTextMessage(msg + "\n 答え:" + qs.Answer)
-	if _, err := bot.BroadcastMessage(txt).Do(); err != nil {
-		log.Fatal(err)
-	}
+	//
+	//txt := linebot.NewTextMessage(msg + "\n 答え:" + qs.Answer)
+	//if _, err := bot.BroadcastMessage(txt).Do(); err != nil {
+	//	log.Fatal(err)
+	//}
 
 	http.HandleFunc("/callback", func(w http.ResponseWriter, req *http.Request) {
 		events, err := bot.ParseRequest(req)
